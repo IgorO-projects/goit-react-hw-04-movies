@@ -1,0 +1,15 @@
+.nav__list{
+  display: flex;
+  list-style: none;
+}
+.nav__list > li:not(:last-child) {
+  margin-right: 10px;
+}
+.nav__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+  }
+  .nav__link_active {
+    color: palevioletred;
+  }
