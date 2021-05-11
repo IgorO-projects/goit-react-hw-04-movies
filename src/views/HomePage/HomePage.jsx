@@ -1,7 +1,6 @@
 import { Component } from "react";
-import ServiceApi from '../../services/ServiceApi/ServiceApi.jsx';
+import FetchApi from '../../services/ServiceApi';
 import MovieList from '../../components/MovieList';
-
 
 export default class HomePage extends Component {
     state = {
@@ -11,13 +10,14 @@ export default class HomePage extends Component {
     componentDidMount() {
         this.fetchTrendingMowies();
       }
-      fetchTrendingMowies = () => {
-        ServiceApi.fetchApi()
+
+    fetchTrendingMowies = () => {
+        FetchApi.getTrendingMovies()
         .then(response => {
             this.setState({ movies: response.data.results });
             console.log(this.state.movies)
         });
-      }
+    }
 
     render() {
         const { movies } = this.state;
