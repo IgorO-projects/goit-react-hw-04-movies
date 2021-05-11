@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/HomePage';
-import Movies from './views/Movies';
+import MoviesPage from './views/MoviesPage';
 import AppBar from './components/AppBar';
+import MovieDetailsPage from './views/MovieDetailsPage';
 
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
       <AppBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/movies" component={Movies} />
+        <Route exact path="/movies" component={MoviesPage} />
+        <Route path="/movies/:movieId" component={MovieDetailsPage} />
       </Switch>
       </>
     );

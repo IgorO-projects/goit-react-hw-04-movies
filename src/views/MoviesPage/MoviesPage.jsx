@@ -1,10 +1,15 @@
 import { Component } from "react";
 import FetchApi from '../../services/ServiceApi';
+import MovieList from '../../components/MovieList';
 
-export default class Movies extends Component {
+export default class MoviesPage extends Component {
     state = {
         query: '',
         movies: [],
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevState);
     }
 
     handleSubmit = event => {
@@ -18,10 +23,13 @@ export default class Movies extends Component {
 
     fetchMoviesByQuery = query => {
         FetchApi.getQueryMovies(query)
-        .then(({ data }) => console.log(data.results))
+        .then(response => {
+            this.setState({ movies: response.data.results })
+        })
     }
 
     render() {
+        const { movies } = this.state;
         return(
             <>
             <h1>Movies</h1>
@@ -32,6 +40,7 @@ export default class Movies extends Component {
                 value={this.state.query}/>
                 <button>Search</button>
             </form>
+            <MovieList movies={movies}/>
             </>
         )
     }
