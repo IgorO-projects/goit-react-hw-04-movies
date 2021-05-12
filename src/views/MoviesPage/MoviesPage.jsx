@@ -7,26 +7,40 @@ export default class MoviesPage extends Component {
         query: '',
         movies: [],
     }
+    componentDidMount() {
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(prevState);
+        if(this.props.location.search) {
+            const searchQuery = this.props.location.search.replace('?query=', '')
+    
+            this.fetchMoviesByQuery(searchQuery)
+        }
     }
 
     handleSubmit = event => {
         event.preventDefault();
+
         this.fetchMoviesByQuery(this.state.query)
+        this.setState({ query: ''})
     }
 
     handleChange = ({ currentTarget }) => {
+
         this.setState({ query: currentTarget.value })
     }
 
     fetchMoviesByQuery = query => {
+
         FetchApi.getQueryMovies(query)
         .then(response => {
             this.setState({ movies: response.data.results })
         })
+
+        this.props.history.push({
+            pathname: this.props.location.pathname,
+            search: `query=${query}`,
+          });
     }
+
 
     render() {
         const { movies } = this.state;
@@ -40,7 +54,9 @@ export default class MoviesPage extends Component {
                 value={this.state.query}/>
                 <button>Search</button>
             </form>
-            <MovieList movies={movies}/>
+            <MovieList 
+            movies={movies}
+            location={this.props.location}/>
             </>
         )
     }

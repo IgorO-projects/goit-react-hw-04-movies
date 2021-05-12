@@ -23,7 +23,9 @@ export default class HomePage extends Component {
         return (
             <>
                 <h1>Trending Today</h1>
-                <MovieList movies={movies}/>
+                <MovieList 
+                movies={movies}
+                location={this.props.location}/>
             </>
         )
     }

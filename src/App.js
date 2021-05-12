@@ -4,6 +4,7 @@ import HomePage from './views/HomePage';
 import MoviesPage from './views/MoviesPage';
 import AppBar from './components/AppBar';
 import MovieDetailsPage from './views/MovieDetailsPage';
+import routes from './routes';
 
 
 class App extends Component {
@@ -13,9 +14,9 @@ class App extends Component {
       <>
       <AppBar />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/movies" component={MoviesPage} />
-        <Route path="/movies/:movieId" component={MovieDetailsPage} />
+        <Route exact path={routes.home} component={HomePage} />
+        <Route exact path={routes.movies} component={MoviesPage} />
+        <Route path={routes.movieDetails} component={MovieDetailsPage} />
       </Switch>
       </>
     );
