@@ -1,0 +1,10 @@
+.cast__list {
+    padding: 15px 25px;
+}
+.cast__actor_img, 
+.cast__actor_name {
+    margin-bottom: 8px;
+}
+.cast__list > li:not(:last-child) {
+    margin-bottom: 15px;
+}

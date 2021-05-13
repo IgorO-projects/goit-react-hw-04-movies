@@ -1,0 +1,9 @@
+.reviews__list {
+    padding: 15px 25px;
+}
+.reviews__list > li:not(:last-child) {
+    margin-bottom: 15px;
+}
+.reviews__author {
+    margin-bottom: 8px;
+}

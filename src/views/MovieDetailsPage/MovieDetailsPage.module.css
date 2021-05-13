@@ -1,0 +1,32 @@
+    .movie__wrapper, 
+    .movie__additional {
+        padding: 15px 0;
+        border-bottom: 1px solid #ececec;
+    }
+    .movie__info {
+        display: flex;
+    }
+    .movie__poster {
+        margin-right: 20px;
+    }
+    .movie__title,
+    .movie__score,
+    .movie__overview_title,
+    .movie__overview,
+    .movie__genres_title {
+        margin-bottom: 30px;
+    }
+    .movie__genres {
+        list-style: none;
+        display: flex;
+    }
+    .movie__genres > li:not(:last-child) {
+        margin-right: 5px;
+    }
+    .movie__additional > ul {
+        padding: 20px 25px;
+    }
+    .movie__additional_list >li:not(:last-child) {
+        margin-bottom: 8px;
+    }
+    

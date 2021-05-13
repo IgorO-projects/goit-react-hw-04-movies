@@ -21,6 +21,17 @@ class ServiceApi extends Component {
         const response = await axios.get(`${BASE_URL}3/movie/${id}?api_key=${API_KEY}&language=en-US`)
         return response;
     }
+
+    async getMovieCast ( id ) {
+        const response = await axios.get(`${BASE_URL}3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+        return response;
+        
+    }
+
+    async getMovieReview ( id ) {
+        const response = await axios.get(`${BASE_URL}3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+        return response;
+    }
 }
 
 const FetchApi = new ServiceApi();
