@@ -34,6 +34,7 @@ export default class MoviesPage extends Component {
         .then(response => {
             this.setState({ movies: response.data.results })
         })
+        .catch(error=> console.log(error));
 
         this.props.history.push({
             pathname: this.props.location.pathname,

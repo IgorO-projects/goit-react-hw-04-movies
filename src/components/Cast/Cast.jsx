@@ -14,13 +14,14 @@ export default  class Cast extends Component {
         FetchApi.getMovieCast(movieId)
         .then(response => {
             this.setState({ cast: response.data.cast })
-        });
+        })
+        .catch(error=> console.log(error));
 
     }
 
     render() {
         const { cast } = this.state;
-        
+
         return( 
             <ul className={styles.cast__list}>
                 {cast.map(actor => (

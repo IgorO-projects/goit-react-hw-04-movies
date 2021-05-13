@@ -15,7 +15,8 @@ export default class HomePage extends Component {
         FetchApi.getTrendingMovies()
         .then(response => {
             this.setState({ movies: response.data.results });
-        });
+        })
+        .catch(error=> console.log(error));
     }
 
     render() {

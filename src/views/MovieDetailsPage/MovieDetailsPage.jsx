@@ -30,7 +30,8 @@ export default class MovieDetailsPage extends Component {
                 genres: response.data.genres,
                 id: response.data.id,
              });
-        });
+        })
+        .catch(error=> console.log(error));
     }
 
     handleBack = () => {

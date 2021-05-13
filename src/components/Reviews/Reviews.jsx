@@ -13,15 +13,18 @@ export default class Reviews extends Component {
         FetchApi.getMovieReview(movieId)
         .then(response => {
             this.setState({ reviews: response.data.results })
-        });
-
+        })
+        .catch(error=> console.log(error));
     }
 
     render () {
         const { reviews } = this.state;
 
         return (
-            <ul className={styles.reviews__list}>
+            <>
+            {reviews.length === 0 && <p>We don't have any reviews for this movie</p>}
+            {reviews.length > 0 && (
+                <ul className={styles.reviews__list}>
                 {reviews.map(review => (
                     <li key={review.id}>
                         <h3 className={styles.reviews__author}>Author: {review.author}</h3>
@@ -30,6 +33,8 @@ export default class Reviews extends Component {
                 )
                 )}
             </ul>
+            )}
+            </>
         )
     }
 }
