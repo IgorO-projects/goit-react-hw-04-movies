@@ -64,8 +64,14 @@ export default class MovieDetailsPage extends Component {
             <div className={styles.movie__additional}>
                 <h3 className={styles.movie__additional_title}>Additional information</h3>
                 <ul className={styles.movie__additional_list}>
-                    <li><Link to={`${this.props.match.url}/cast`}>Cast</Link></li>
-                    <li><Link to={`${this.props.match.url}/reviews`}>Reviews</Link></li>
+                    <li><Link to={{
+                        pathname: `${this.props.match.url}/cast`,
+                        state: { from: this.props.location }
+                    }}>Cast</Link></li>
+                    <li><Link to={{ 
+                        pathname: `${this.props.match.url}/reviews`,
+                        state: { from: this.props.location }
+                }}>Reviews</Link></li>
                 </ul>
             </div>
             <Switch>
